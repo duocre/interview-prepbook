@@ -1,0 +1,44 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "id": "00cad788-4bcb-49ec-8c7c-b69251260e44",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "questions": {
+      "name": "questions",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "question": {
+          "name": "question",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "done": {
+          "name": "done",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
