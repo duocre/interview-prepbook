@@ -11,13 +11,26 @@ const db = drizzle(sqlite);
 
 migrate(db, { migrationsFolder: 'drizzle' });
 
+const QuestionSchema = z.object({
+  title: z.string(),
+  explanation: z.string(),
+  options: z.string(),
+  answer: z.string(),
+  answer_explanation: z.string(),
+});
+
+export const QuestionsTableSchema = z.array(QuestionSchema);
+
 export const appRouter = router({
   getQuestions: publicProcedure.query(async () => {
-    return await db.select().from(questions).all();
+    return db.select().from(questions).all();
   }),
 
-  addQuestion: publicProcedure.input(z.string()).mutation(async (opts) => {
-    await db.insert(questions).values({ question: opts.input, done: 0 }).run();
+  addQuestion: publicProcedure.input(QuestionSchema).mutation(async (opts) => {
+    // console.log({ ...opts.input });
+    db.insert(questions)
+      .values({ ...opts.input })
+      .run();
     return true;
   }),
 });
