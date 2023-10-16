@@ -15,7 +15,9 @@ export default function AdminQuestionsPage() {
           className="border-2 border-gray-200 rounded-md p-4"
         >
           <h3 className="text-lg font-bold">{question.title}</h3>
-          <Link href="/admin/questions/add">Edit question</Link>
+          <Link href={`/admin/questions/edit/${question.id}`}>
+            Edit question
+          </Link>
         </div>
       ))}
     </div>
