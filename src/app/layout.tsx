@@ -25,7 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn('antialiased bg-[#F9F7F7]', poppins.className)}>
+      <body
+        className={cn('antialiased bg-[#F9F7F7] h-full', poppins.className)}
+      >
         <Provider>{children}</Provider>
         <TailwindIndicator />
       </body>

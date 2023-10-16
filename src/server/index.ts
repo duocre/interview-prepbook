@@ -72,7 +72,7 @@ export const appRouter = router({
         options: z.string().optional(),
         answer: z
           .string()
-          .min(10, { message: 'Answer must be at least 10 characters long' }),
+          .min(1, { message: 'Answer must be at least 1 characters long' }),
         answer_explanation: z.string().min(10, {
           message: 'Answer explanation must be at least 10 characters long',
         }),
