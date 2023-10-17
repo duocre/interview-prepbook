@@ -64,6 +64,12 @@ export default function AdminAddQuestionsPage() {
     setShowOptionEditor(false);
   };
 
+  const deleteOption = (key: string) => {
+    const remainingOptions = { ...options };
+    delete remainingOptions[key];
+    setOptions(remainingOptions);
+  };
+
   const handleSetAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAnswer(e.target.id);
   };
@@ -112,7 +118,12 @@ export default function AdminAddQuestionsPage() {
           {options &&
             Object.keys(options).map((key) => (
               <div key={key} className="flex items-center gap-x-2">
-                <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                <Button onClick={() => deleteOption(key)}>
+                  <MinusIcon
+                    className="h-5 w-5 bg-red-600"
+                    aria-hidden="true"
+                  />
+                </Button>
                 <span>{key}:</span>
                 <span>{options[key]}</span>
               </div>

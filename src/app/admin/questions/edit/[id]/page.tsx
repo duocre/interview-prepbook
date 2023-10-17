@@ -15,7 +15,6 @@ export default function AdminEditQuestionsPage({
   return (
     <Suspense fallback={<h1>Loading</h1>}>
       {questionById.data && <QuestionEditForm question={questionById.data} />}
-      <div>{JSON.stringify(questionById)}</div>
     </Suspense>
   );
 }
