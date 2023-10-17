@@ -23,7 +23,7 @@ export default function AdminLayout({ children }: PropsWithChildren) {
   const pathname = usePathname();
   return (
     <div>
-      <div className="fixed inset-y-0 z-50 flex w-72 flex-col">
+      <aside className="fixed inset-y-0 z-50 flex w-72 flex-col">
         <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6">
           <div className="flex h-16 shrink-0 items-center">
             <img
@@ -60,7 +60,7 @@ export default function AdminLayout({ children }: PropsWithChildren) {
             </ul>
           </nav>
         </div>
-      </div>
+      </aside>
 
       <main className="py-10 pl-72">
         <div className="px-4 sm:px-6 lg:px-8">{children}</div>

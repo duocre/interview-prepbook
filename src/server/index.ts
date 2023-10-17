@@ -5,7 +5,8 @@ import { z } from 'zod';
 
 import { publicProcedure, router } from './trpc';
 import { questions } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, sql } from 'drizzle-orm';
+import { base64DecodeString, parseJsonFromString } from '@/lib/utils';
 
 const sqlite = new Database('sqlite.db');
 const db = drizzle(sqlite);
@@ -15,6 +16,14 @@ migrate(db, { migrationsFolder: 'drizzle' });
 export const appRouter = router({
   getQuestions: publicProcedure.query(async () => {
     return db.select().from(questions).all();
+  }),
+
+  totalQuestion: publicProcedure.query(async () => {
+    const model = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(questions);
+
+    return model[0].count;
   }),
 
   getQuestion: publicProcedure
@@ -84,6 +93,21 @@ export const appRouter = router({
         .run();
       return true;
     }),
+  addBulkQuestion: publicProcedure.input(z.string()).mutation(async (opts) => {
+    const decodedData = base64DecodeString(opts.input);
+    const jsonData = parseJsonFromString(decodedData);
+    const formattedData = jsonData.map((item: any) => {
+      return {
+        title: item.title,
+        explanation: item.explanation,
+        options: JSON.stringify(item.options),
+        answer: item.answer,
+        answer_explanation: item.answer_explanation,
+      };
+    });
+
+    return db.insert(questions).values([...formattedData]);
+  }),
 });
 
 export type AppRouter = typeof appRouter;
