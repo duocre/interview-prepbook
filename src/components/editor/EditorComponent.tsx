@@ -23,7 +23,7 @@ const Editor: FC<EditorProps> = ({ markdown, editorRef }) => {
       markdown={markdown}
       plugins={ALL_PLUGINS}
       className="prose prose-slate rounded w-full"
-      contentEditableClassName="border border-gray-300 p-2 w-full min-h-[300px]"
+      contentEditableClassName="border-t border-gray-300 p-2 w-full min-h-[300px]"
     />
   );
 };
