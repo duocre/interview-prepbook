@@ -17,6 +17,7 @@ import {
   PlusCircleIcon,
   PlusIcon,
 } from '@heroicons/react/20/solid';
+import Button from '@/components/ui/Button';
 
 const EditorComp = dynamic(
   () => import('@/components/editor/EditorComponent'),
@@ -128,23 +129,23 @@ export default function AdminAddQuestionsPage() {
                 value={currentOptionValue}
                 onChange={(e) => setCurrentOptionValue(e.target.value)}
               />
-              <button
+              <Button
                 type="button"
+                className="rounded-full self-end p-2"
                 onClick={addOption}
-                className="rounded-full bg-indigo-600 self-end p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <PlusIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+              </Button>
             </div>
           )}
-          <button
+          <Button
             type="button"
+            className="inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold w-fit"
             onClick={() => setShowOptionEditor(!showOptionEditor)}
-            className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-fit"
           >
             Add options
             <PlusCircleIcon className="-mr-0.5 h-5 w-5" aria-hidden="true" />
-          </button>
+          </Button>
           {options && Object.entries(options).length > 0 && (
             <fieldset className="mt-4">
               <Label>Select an answer from the options*</Label>
@@ -187,10 +188,10 @@ export default function AdminAddQuestionsPage() {
               </div>
             ))}
 
-          <button
+          <Button
+            className="inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold w-fit"
             type="submit"
             disabled={addQuestion.isLoading}
-            className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-fit"
           >
             Save
             <CloudArrowUpIcon
@@ -200,7 +201,7 @@ export default function AdminAddQuestionsPage() {
               )}
               aria-hidden="true"
             />
-          </button>
+          </Button>
         </form>
       </main>
     </Suspense>
