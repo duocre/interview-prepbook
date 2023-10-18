@@ -1,0 +1,86 @@
+[
+  {
+    "title": "What is a JavaScript variable?",
+    "explanation": "Explain the concept of a JavaScript variable. Provide a code example.",
+    "options": {
+      "a": "A variable that is constant and cannot be changed.",
+      "b": "A container that can hold different types of data.",
+      "c": "A reserved keyword used in JavaScript functions.",
+      "d": "A function used to declare constants in JavaScript."
+    },
+    "answer": "b",
+    "answer_explanation": "A JavaScript variable is a container that can hold different types of data. For example:\n```javascript\nvar name = 'John';\nvar age = 30;\nvar isStudent = true;\n```"
+  },
+  {
+    "title": "What is a callback function in JavaScript?",
+    "explanation": "Explain the concept of a callback function and provide a code example.",
+    "options": {
+      "a": "A function that executes immediately when called.",
+      "b": "A function that is passed as an argument to another function and is executed later.",
+      "c": "A function that is used for debugging JavaScript code.",
+      "d": "A function that returns a value in JavaScript."
+    },
+    "answer": "b",
+    "answer_explanation": "A callback function in JavaScript is a function that is passed as an argument to another function and is executed later. For example:\n```javascript\nfunction doSomething(callback) {\n  // Do some work\n  callback();\n}\n\ndoSomething(function() {\n  console.log('Callback executed!');\n});\n```"
+  },
+  {
+    "title": "What is the difference between 'let' and 'var' in JavaScript?",
+    "explanation": "Explain the difference between the 'let' and 'var' keywords in JavaScript with code examples.",
+    "options": {
+      "a": "'let' is block-scoped, while 'var' is function-scoped.",
+      "b": "'var' is block-scoped, while 'let' is function-scoped.",
+      "c": "Both 'var' and 'let' are block-scoped.",
+      "d": "Both 'var' and 'let' are function-scoped."
+    },
+    "answer": "a",
+    "answer_explanation": "The main difference is that 'let' is block-scoped, while 'var' is function-scoped. For example:\n```javascript\nif (true) {\n  var x = 10; // 'var' is function-scoped\n  let y = 20; // 'let' is block-scoped\n}\nconsole.log(x); // 10\nconsole.log(y); // ReferenceError: y is not defined\n```"
+  },
+  {
+    "title": "What is the 'map' function in JavaScript?",
+    "explanation": "Explain the 'map' function and provide a code example.",
+    "options": {
+      "a": "A function for drawing maps in JavaScript.",
+      "b": "A function used to define maps in JavaScript objects.",
+      "c": "A method that creates a new array by applying a function to each element of an existing array.",
+      "d": "A function used to calculate the map projection in JavaScript."
+    },
+    "answer": "c",
+    "answer_explanation": "The 'map' function in JavaScript is a method that creates a new array by applying a function to each element of an existing array. For example:\n```javascript\nconst numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map(function(num) {\n  return num * 2;\n});\nconsole.log(doubled); // [2, 4, 6, 8, 10]\n```"
+  },
+  {
+    "title": "What is the purpose of the 'bind' method in JavaScript?",
+    "explanation": "Explain the purpose of the 'bind' method and provide a code example.",
+    "options": {
+      "a": "A method for creating new arrays.",
+      "b": "A method used to attach event listeners to DOM elements.",
+      "c": "A method that creates a new function with a specified 'this' value.",
+      "d": "A method used for sorting arrays in JavaScript."
+    },
+    "answer": "c",
+    "answer_explanation": "The 'bind' method in JavaScript is used to create a new function with a specified 'this' value. For example:\n```javascript\nconst person = {\n  name: 'Alice',\n  greet: function() {\n    console.log('Hello, ' + this.name);\n  }\n};\nconst greetFunction = person.greet.bind(person);\ngreetFunction(); // Hello, Alice\n```"
+  },
+  {
+    "title": "What is a JavaScript closure?",
+    "explanation": "Explain the concept of a closure in JavaScript with a code example.",
+    "options": {
+      "a": "A function that has no access to external variables.",
+      "b": "A function that can access its own local variables.",
+      "c": "A function that has access to variables from its parent scope, even after the parent function has finished executing.",
+      "d": "A function that can only be called once."
+    },
+    "answer": "c",
+    "answer_explanation": "A closure in JavaScript is a function that has access to variables from its parent scope, even after the parent function has finished executing. For example:\n```javascript\nfunction outer() {\n  var message = 'Hello';\n  function inner() {\n    console.log(message);\n  }\n  return inner;\n}\nconst myClosure = outer();\nmyClosure(); // Hello\n```"
+  },
+  {
+    "title": "What is the 'this' keyword in JavaScript?",
+    "explanation": "Explain the role and behavior of the 'this' keyword in JavaScript with a code example.",
+    "options": {
+      "a": "It refers to the current file being executed.",
+      "b": "It always refers to the global object, such as 'window' in a browser environment.",
+      "c": "It refers to the object that is currently executing the function containing 'this'.",
+      "d": "It is a reserved keyword but serves no specific purpose in JavaScript."
+    },
+    "answer": "c",
+    "answer_explanation": "The 'this' keyword in JavaScript refers to the object that is currently executing the function that contains 'this'. For example:\n```javascript\nconst person = {\n  name: 'John',\n  greet: function() {\n    console.log('Hello, ' + this.name);\n  }\n};\nperson.greet(); // Hello, John\n```"
+  }
+]
